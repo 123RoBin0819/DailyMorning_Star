@@ -210,7 +210,7 @@ if __name__ == "__main__":
         print("推送消息失败，请检查配置文件格式是否正确")
         os.system("pause")
         sys.exit(1)
-
+    suiji=random.randint(1, 7)
     # 获取accessToken
     accessToken = get_access_token()
     # 接收的用户
@@ -222,5 +222,5 @@ if __name__ == "__main__":
     note_ch, note_en = get_ciba()
     # 公众号推送消息
     for user in users:
-        send_message(user, accessToken, city, weather, max_temperature, min_temperature, note_ch, note_en)
+        send_message(user, accessToken, city, weather, max_temperature, min_temperature, note_ch, note_en,suiji)
     os.system("pause")
