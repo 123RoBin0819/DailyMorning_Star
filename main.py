@@ -239,7 +239,7 @@ if __name__ == "__main__":
         suiji="早起券一张！"
     elif a==27:
         suiji="自律券一张！"
-    else ：
+    else :
         suiji="今天没有券哦~"
     b=random.randint(1, 2)
     if b==1:
