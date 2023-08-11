@@ -214,7 +214,11 @@ if __name__ == "__main__":
         print("推送消息失败，请检查配置文件格式是否正确")
         os.system("pause")
         sys.exit(1)
-    suiji=random.randint(1, 7)
+    a=random.randint(1, 7)
+    if a==2:
+        suiji="奶茶券"
+    else:
+        suiji="未定"
     # 获取accessToken
     accessToken = get_access_token()
     # 接收的用户
