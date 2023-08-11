@@ -111,7 +111,7 @@ def get_ciba():
     return note_ch, note_en
 
 
-def send_message(to_user, access_token, city_name, weather, max_temperature, min_temperature, suiji, note_ch, note_en):
+def send_message(to_user, access_token, city_name, weather, max_temperature, min_temperature, shei， suiji, note_ch, note_en):
     url = "https://api.weixin.qq.com/cgi-bin/message/template/send?access_token={}".format(access_token)
     week_list = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"]
     year = localtime().tm_year
@@ -159,6 +159,10 @@ def send_message(to_user, access_token, city_name, weather, max_temperature, min
             },
             "love_day": {
                 "value": love_days,
+                "color": get_color()
+            },
+            "shei": {
+                "value": shei,
                 "color": get_color()
             },
             "suiji": {
@@ -214,11 +218,34 @@ if __name__ == "__main__":
         print("推送消息失败，请检查配置文件格式是否正确")
         os.system("pause")
         sys.exit(1)
-    a=random.randint(1, 7)
-    if a==2:
-        suiji="奶茶券"
-    else:
-        suiji="未定"
+    a=random.randint(1, 45)
+    if a==1:
+        suiji="投喂券一张！"
+    elif a==9:
+        suiji="愿望券一张！"
+    elif a==17:
+        suiji="乖乖听话券一张！"
+    elif a==21:
+        suiji="运动券一张！"
+    elif a==30:
+        suiji="运动券一张！"
+    elif a==38:
+        suiji="早睡券一张！"
+    elif a==25:
+        suiji="不生气券一张！"
+    elif a==33:
+        suiji="游戏券一张！"
+    elif a==44:
+        suiji="早起券一张！"
+    elif a==27:
+        suiji="自律券一张！"
+    else ：
+        suiji="今天没有券哦~"
+    b=random.randint(1, 2)
+    if b==1:
+        shei="大聪明泽宝！"
+    else :
+        shei="小笨蛋晗宝！"
     # 获取accessToken
     accessToken = get_access_token()
     # 接收的用户
@@ -230,5 +257,5 @@ if __name__ == "__main__":
     note_ch, note_en = get_ciba()
     # 公众号推送消息
     for user in users:
-        send_message(user, accessToken, city, weather, max_temperature, min_temperature, suiji, note_ch, note_en)
+        send_message(user, accessToken, city, weather, max_temperature, min_temperature, shei, suiji, note_ch, note_en)
     os.system("pause")
